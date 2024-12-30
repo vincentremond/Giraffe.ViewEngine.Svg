@@ -1,6 +1,7 @@
 ﻿namespace Giraffe.ViewEngine.Svg
 
 type NamedColor =
+  | Red
   | Black
   | Gray
   | White
@@ -16,6 +17,7 @@ type NamedColor =
 
   static member value =
     function
+    | Red -> "red"
     | Black -> "black"
     | Gray -> "gray"
     | White -> "white"

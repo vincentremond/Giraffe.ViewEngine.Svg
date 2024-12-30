@@ -67,6 +67,11 @@ module Style =
   let _stroke color = css "stroke" (Color.value color)
   let _stroke_width v = css "stroke-width" (Unit.value v)
 
+  let _stroke_dashArray v =
+    css "stroke-dasharray" (v |> Array.map Unit.value |> String.concat ", ")
+
+  let _stroke_dashOffset v = css "stroke-dashoffset" (Unit.value v)
+
   type LineCap =
     | Butt
     | Round
