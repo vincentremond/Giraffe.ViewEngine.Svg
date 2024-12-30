@@ -25,6 +25,7 @@ module Tags =
   [<RequireQualifiedAccess>]
   module Sodipodi =
     let namedView = tag "sodipodi:namedview"
+    let guide = voidTag "sodipodi:guide"
 
   [<RequireQualifiedAccess>]
   module Inkscape =

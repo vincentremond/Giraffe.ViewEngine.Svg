@@ -6,6 +6,10 @@ module Attributes =
   open Giraffe.ViewEngine
 
   let private sizeAttr n size = attr n (Unit.value size)
+
+  let private positionAttr n x y =
+    attr n ((Unit.value x, Unit.value y) ||> sprintf "%s,%s")
+
   let private colorAttr n color = attr n (Color.value color)
   let private floatAttr n (f: float) = attr n (string f)
 
@@ -13,6 +17,7 @@ module Attributes =
     attr "text-anchor" (TextAnchor.toString a)
 
   let _xmlns = attr "xmlns"
+  let _xmlns' n v = attr $"xmlns:{n}" v
   let _xmlns__xlink = attr "xmlns:xlink"
   let _xlink__href = attr "xlink:href"
 
@@ -97,6 +102,13 @@ module Attributes =
     attr "style" (CssProperty.values cssProperties)
 
   let _d commands = attr "d" (PathCommand.values commands)
+
+  [<RequireQualifiedAccess>]
+  module Sodipodi =
+    let _position horizontalPosition verticalPosition =
+      positionAttr "position" horizontalPosition verticalPosition
+
+    let _orientation = attr "orientation"
 
   [<RequireQualifiedAccess>]
   type DominantBaseline =
