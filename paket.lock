@@ -1,6 +1,6 @@
 STORAGE: NONE
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    FSharp.Core (9.0.300)
+    FSharp.Core (10.0.100)
     Giraffe.ViewEngine (1.4)
       FSharp.Core (>= 5.0) - restriction: >= netstandard2.0
